@@ -27,19 +27,10 @@ const FONT_FAMILY = "'JetBrains Mono', monospace, 0.3em"
 const Leaderboard = React.memo(function LeaderboardComponent(props: any) {
   // args from Streamlit
   let args = props.args;
+  
   const [{ performances, models, date_marks, tasks}, page_idx]= args;
 
-
   const [isMobileCompressed, setIsMobileCompressed] = useState(window.innerWidth < 768);
-
-  // const [data, setData] = useState(args);
-
-  // console.log(props)
-  // console.log(performances)
-  // console.log(models)
-
-
-
 
   const modelsDict = useMemo(() => {
     return models.reduce((acc: any, model: any) => {
@@ -105,7 +96,6 @@ const Leaderboard = React.memo(function LeaderboardComponent(props: any) {
 
   const dateAriaText = dateLabelFormat
 
-
   const leaderboard = useMemo(() => {
     return getLeaderboard(
       performances,
@@ -115,8 +105,6 @@ const Leaderboard = React.memo(function LeaderboardComponent(props: any) {
       0,0
     );
   }, [performances, models, dateStartAndEnd]);
-
-
 
   const numProblems = performances.filter(
     (result: any) =>
@@ -168,8 +156,8 @@ const Leaderboard = React.memo(function LeaderboardComponent(props: any) {
   useEffect(() => {
     // console.log('Component re-rendered due to changes in column:', columnNames, modelsDict);
     setColumnDefs(getColumnDefs(columnNames, performances, modelsDict, page_idx));
-  }, [columnNames, modelsDict]);
-
+  }, [columnNames, modelsDict, page_idx]);
+  
   // console.log(columnNames, modelsDict);
   // ********* Styles and return *********
 
@@ -214,10 +202,6 @@ const Leaderboard = React.memo(function LeaderboardComponent(props: any) {
     }
   }
 
-  let groupDisplayType = 'groupRows';
-  if (page_idx !== "infilling"){
-    groupDisplayType = 'custom'
-  }
 
 
   let message = `${numProblems} problems selected in the current time window.`;
@@ -234,10 +218,9 @@ const Leaderboard = React.memo(function LeaderboardComponent(props: any) {
 
   message += "<br><br>We estimate cutoff dates based on release date and performance variation. Feel free to adjust the slider to see the leaderboard at different time windows. Please offer feedback if you find any issues!"
 
-  console.log("rowData :", rowData)
+  // console.log("rowData :", rowData)
   console.log("columnDefs :", columnDefs)
 //display: numProblems === 0 ? "none" : "flex",
-
   const getRowStyle = (params: ICellRendererParams) => {
     if (params.data && params.data.Model === 'SynCoder') {
       return { background: '#C7EDCC' };
@@ -252,6 +235,7 @@ const Leaderboard = React.memo(function LeaderboardComponent(props: any) {
           alignItems: "center",
         }}
       >
+      
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center",  height: "100%", width: "100%" }} id='flexGridWrapper'>
           <div style={{ flexGrow: "1", height: "100%", width: "100%", display: "flex", justifyContent: "center" }}> {/* Center the grid */}
             <div style={gridStyle} className={agGridTheme}>
@@ -260,7 +244,6 @@ const Leaderboard = React.memo(function LeaderboardComponent(props: any) {
                 ref={gridRef}
                 rowData={rowData}
                 columnDefs={columnDefs}
-                // groupDisplayType={groupDisplayType}
                 defaultColDef={defaultColDef}
                 domLayout="autoHeight"
                 debug={true}

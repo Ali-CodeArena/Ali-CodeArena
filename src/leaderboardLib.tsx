@@ -197,8 +197,126 @@ function getMaxValues(performances: Array<any>) {
 function getColumnDefs(columnNames: Array<string>, performances: Array<any>, modelsDict: any, page_idx: string) {
   // 获取最大值
   let maxValues = getMaxValues(performances);
-
   console.log("columnNames :", columnNames);
+  console.log("page_idx :", page_idx);
+  if (page_idx == "lines"){
+    let columnDefs = [
+      {
+        headerName: 'Name',
+        field: 'Model',
+        pinned: "left"
+      },
+      {
+        headerName: 'Rank',
+        field: 'Rank',
+        columnGroupShow: 'closed',   // 列组分组
+        minWidth: 75
+      },
+      {
+        headerName: 'Size',
+        field: 'Size',
+        columnGroupShow: 'closed',  // 列组分组
+        minWidth: 75
+      },
+      {
+        headerName: 'User Interface&Experience',
+        columnGroupShow: 'closed',   // 列组分组
+        field: 'User Interface&Experience',
+        minWidth: 75,
+        cellStyle: (params: ICellRendererParams) => {
+          if (params.value === maxValues["User Interface&Experience"]) {
+            return { color: 'red' };
+          }
+          return null;
+        },
+      },
+      {
+        headerName: 'Development&Programming',
+        columnGroupShow: 'closed',   // 列组分组
+        field: 'Development&Programming',
+        minWidth: 75,
+        cellStyle: (params: ICellRendererParams) => {
+          if (params.value === maxValues["Development&Programming"]) {
+            return { color: 'red' };
+          }
+          return null;
+        },
+      },
+      {
+        headerName: 'Specialized Computing',
+        field: 'Specialized Computing',
+        columnGroupShow: 'closed',   // 列组分组
+        minWidth: 75,
+        cellStyle: (params: ICellRendererParams) => {
+          if (params.value === maxValues["Specialized Computing"]) {
+            return { color: 'red' };
+          }
+          return null;
+        },
+        
+      },
+      {
+        headerName: 'Tools, Environments, and Practices',
+        field: 'Tools, Environments, and Practices',
+        columnGroupShow: 'closed',   // 列组分组
+        minWidth: 75,
+        cellStyle: (params: ICellRendererParams) => {
+          if (params.value === maxValues["Tools, Environments, and Practices"]) {
+            return { color: 'red' };
+          }
+          return null;
+        },
+        
+      },
+      {
+        headerName: 'Emerging Technologies&Applications',
+        field: 'Emerging Technologies&Applications',
+        columnGroupShow: 'closed',   // 列组分组
+        minWidth: 75,
+        cellStyle: (params: ICellRendererParams) => {
+          if (params.value === maxValues["Emerging Technologies&Applications"]) {
+            return { color: 'red' };
+          }
+          return null;
+        },
+        
+      },
+      {
+        headerName: 'Miscellaneous and General Inquiry',
+        field: 'Miscellaneous and General Inquiry',
+        columnGroupShow: 'closed',   // 列组分组
+        minWidth: 75,
+        cellStyle: (params: ICellRendererParams) => {
+          if (params.value === maxValues["Miscellaneous and General Inquiry"]) {
+            return { color: 'red' };
+          }
+          return null;
+        },
+        
+      },
+      {
+        headerName: 'Databases&Data Handling',
+        field: 'Databases&Data Handling',
+        columnGroupShow: 'closed',   // 列组分组
+        minWidth: 75,
+        cellStyle: (params: ICellRendererParams) => {
+          if (params.value === maxValues["Databases&Data Handling"]) {
+            return { color: 'red' };
+          }
+          return null;
+        },
+        
+      },
+      {
+        headerName: 'Avg',
+        field: 'Avg',
+        columnGroupShow: 'open',   // 列组分组
+        minWidth: 75
+      }
+    ]
+    return columnDefs;
+  }
+  else{
   let columnDefs = [
     {
       headerName: 'Model',
@@ -338,6 +456,7 @@ function getColumnDefs(columnNames: Array<string>, performances: Array<any>, mod
     }
   ];
   return columnDefs;
+  }
   // return columnNames
   //   .map((column_name) => {
   //       if (column_name === "group1" || column_name === "group2") {

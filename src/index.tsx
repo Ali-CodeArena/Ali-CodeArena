@@ -9,11 +9,15 @@ import mockDataComplete from "./mocks/code_complete.json"
 
 import 'ag-grid-enterprise'
 
+import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
+
 const LeaderboardTabs = () => {
   // State to track the currently selected tab
   const [activeTab, setActiveTab] = useState('tab1');
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
-
+  const [showFirstTable, setShowFirstTable] = useState(true);
+  const [buttonText, setButtonText] = useState('Show in group?');
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
@@ -26,18 +30,34 @@ const LeaderboardTabs = () => {
     };
   }, []);
 
+  const toggleShowFirstTable = () => {
+    setShowFirstTable(!showFirstTable);
+    setButtonText(showFirstTable ? 'Show in lines?' : 'Show in groups?');
+  };
+
   // Function to render the leaderboard based on the selected tab
   const renderLeaderboard = () => {
     // console.log(activeTab);
     switch (activeTab) {
       case 'tab1':
-        return <Leaderboard theme={{ base: "light" }} args={[mockDataComplete, "complete"]} />;
+        switch (showFirstTable) {
+          case true:
+            return <Leaderboard theme={{ base: "light" }} args={[mockDataComplete, "lines"]} />;
+          case false:
+            return <Leaderboard theme={{ base: "light" }} args={[mockDataComplete, "groups"]} />;
+        }
       default:
         return <div>Select a tab</div>;
     }
   };
   return (
     <div className="tabs-container">
+      <Stack direction="row" spacing={2}>
+        {/* <Button onClick={() => setShowFirstTable(!showFirstTable)}>Show in groups?</Button> */}
+        {/* <Button onClick={toggleShowFirstTable}>{buttonText}</Button> */}
+        <Button variant="contained" onClick={toggleShowFirstTable}>{buttonText}</Button>
+      </Stack>
+
       <div className="tab-content">
         {renderLeaderboard()}
       </div>
@@ -59,34 +79,34 @@ ReactDOM.render(
               <h1 className="title publication-title" style={{ fontSize: '2.5rem' }}>⚔️CodeArena</h1>
               <h2 className="title is-3 publication-title">Real-world Coding Tasks</h2>
               <h2 className="title is-3 publication-title">Aligning Human Preferences and Model Generation</h2>
-            <div className="is-5 publication-authors">
-            <span className="author-block publication-title-Cinzel">
+            <div className="is-4 publication-authors">
+            <span className="is-4 publication-title-Cinzel">
                 <a href="">Jian Yang</a><sup>1</sup>,</span>
-              <span className="author-block publication-title-Cinzel">
+              <span className="is-4 publication-title-Cinzel">
                 <a href="">Jiaxi Yang</a><sup>2,3</sup>,</span>
-              <span className="author-block publication-title-Cinzel">
+              <span className="is-4 publication-title-Cinzel">
                 <a href="">Ke Jin</a><sup></sup>,</span>
-              <span className="author-block publication-title-Cinzel">
+              <span className="is-4 publication-title-Cinzel">
                 <a href="">Yibo Miao</a><sup>4</sup>,</span>
-              <span className="author-block publication-title-Cinzel">
+              <span className="is-4 publication-title-Cinzel">
                 <a href="">Lei Zhang</a><sup>2,3</sup>,</span>
-              <span className="author-block publication-title-Cinzel">
+              <span className="is-4 publication-title-Cinzel">
                 <a href="">Liqun Yang</a><sup></sup>,</span>
-              <span className="author-block publication-title-Cinzel">
+              <span className="is-4 publication-title-Cinzel">
                 <a href="">Zeyu Cui</a><sup>1</sup>,</span>
-              <span className="author-block publication-title-Cinzel">
+              <span className="is-4 publication-title-Cinzel">
                 <a href="">Yichang Zhang</a><sup>1</sup>,</span>
-              <span className="author-block publication-title-Cinzel">
+              <span className="is-4 publication-title-Cinzel">
                 <a href="">Binyuan Hui</a><sup>1</sup>,</span>
-              <span className="author-block publication-title-Cinzel">
+              <span className="is-4 publication-title-Cinzel">
                 <a href="">Junyang Lin</a><sup>1</sup>,</span>
             </div>
 
-            <div className="is-5 publication-authors">
-              <span className="author-block publication-title-Cinzel"><sup>1</sup>Alibaba Group;</span><br />
-              <span className="author-block publication-title-Cinzel"><sup>2</sup>Shenzhen Institute of Advanced Technology, Chinese Academy of Sciences;</span><br />
-              <span className="author-block publication-title-Cinzel"><sup>3</sup>University of Chinese Academy of Sciences;</span><br />
-              <span className="author-block publication-title-Cinzel"><sup>4</sup>Shanghai Jiao Tong University;</span>
+            <div className="is-4 publication-authors">
+              <span className="is-4 publication-title-Cinzel"><sup>1</sup>Alibaba Group;</span><br />
+              <span className="is-4 publication-title-Cinzel"><sup>2</sup>Shenzhen Institute of Advanced Technology, Chinese Academy of Sciences;</span><br />
+              <span className="is-4 publication-title-Cinzel"><sup>3</sup>University of Chinese Academy of Sciences;</span><br />
+              <span className="is-4 publication-title-Cinzel"><sup>4</sup>Shanghai Jiao Tong University;</span>
             </div>
 
               <div className="column has-text-centered">
