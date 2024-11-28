@@ -143,7 +143,7 @@ ReactDOM.render(
 
                   <span className="link-block">
                     <a
-                      href=""
+                      href="https://ali-codearena.github.io/Ali-CodeArena/"
                       className="external-link button is-large is-rounded is-dark"
                     >
                       <span className="icon">

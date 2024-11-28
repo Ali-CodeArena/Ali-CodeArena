@@ -12,23 +12,6 @@
   <link href="https://fonts.googleapis.com/css2?family=IM+Fell+Great+Primer:ital@0;1&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet"></link>
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <!-- <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || []
-
-      function gtag() {
-        dataLayer.push(arguments)
-      }
-
-      gtag("js", new Date())
-
-      gtag("config", "G-PYVRSFMDRL")
-    </script> -->
-
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet" />
 
   <link rel="stylesheet" href="./css/bulma.min.css" />
@@ -44,6 +27,33 @@
   <script src="./js/bulma-carousel.min.js"></script>
   <script src="./js/bulma-slider.min.js"></script>
   <script src="./js/index.js"></script>
+
+  <style>
+    .rounded-box {
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            width: 800px;
+            text-align: center;
+            background-color: #fefaf5;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+    /* 应用 Cinzel 字体到标题 */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Cinzel', serif;
+    }
+
+    /* 应用 IM Fell Great Primer 字体到正文 */
+    body, p, span, div {
+      font-family: 'IM Fell Great Primer', serif;
+    }
+
+    body {
+      background-color: #fdf8f0; /* 羊皮纸背景色 */
+    }
+  </style>
+
 </head>
 
 <body>
@@ -133,18 +143,6 @@
     </div>
   </section>
 
-  <section class="hero teaser">
-    <div class="container is-max-desktop">
-      <div class="hero-body">
-        <div class="columns is-centered">
-          <!-- center the image -->
-          <img src="./images/categories_sunburst.pdf" alt="Teaser" class="teaser-image center" width="60%" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-
   <section class="section">
     <div class="container is-max-desktop">
       <!-- Abstract. -->
@@ -153,26 +151,20 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              Code large language models (codeLLMs) have
-made significant strides in code generation.
-Most previous code-related benchmarks, which
-consist of various programming exercises along
-with the corresponding test cases, are used
-as a common measure to evaluate the performance and capabilities of code LLMs. How-
-ever, the current codeLLMs focus on synthesizing the correct code snippet, ignoring the
-alignment with human preferences, where the
-query should sampled from the practical application scenarios and the model-generated
-responses should satisfy the human preference. To bridge the gap between the modelgenerated response and human preference, we
-present a rigorous human-curated benchmark
-CodeArena to emulate the complexity and diversity of real-world coding tasks, where 397
-high-quality samples spanning 40 categories,
-carefully curated from user queries. Further, we
-propose a diverse synthetic instruction corpus
-SynCode-Instruct (nearly 10B tokens) by scaling instructions from the website. The results
-find performance differences between code execution-based benchmarks and CodeArena.
-Our systematic experiments of CodeArena on
-20+ LLMs reveal a notable performance gap between open codeLLMs (e.g. Qwen-Coder) and
-closed-source LLMs (e.g., o1 and Claude series), underscoring the importance of the alignment of the human preference.
+              The current codeLLMs focus on synthesizing the correct code snippet, ignoring the
+              alignment with human preferences, where the
+              query should sampled from the practical application scenarios and the model-generated
+              responses should satisfy the human preference. To bridge the gap between the modelgenerated response and human preference, we
+              present a rigorous human-curated benchmark
+              <span class="dnerf">codearena</span> to emulate the complexity and diversity of real-world coding tasks, where 397
+              high-quality samples spanning 40 categories,
+              carefully curated from user queries. Further, we
+              propose a diverse synthetic instruction corpus
+              <span class="dnerf">syncode-instruct</span> (nearly 10B tokens) by scaling instructions from the website. The results
+              find performance differences between code execution-based benchmarks and CodeArena.
+              Our systematic experiments of CodeArena on
+              20+ LLMs reveal a notable performance gap between open codeLLMs (e.g. Qwen-Coder) and
+              closed-source LLMs (e.g., o1 and Claude series), underscoring the importance of the alignment of the human preference.
             </p>
           </div>
         </div>
@@ -180,35 +172,35 @@ closed-source LLMs (e.g., o1 and Claude series), underscoring the importance of 
       <!--/ Abstract. -->
     </div>
   </section>
-  <!--
+
   <section class="section">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h2 class="title is-3">Contamination</h2>
+          <h2 class="title is-3">Introduction</h2>
           <div class="content has-text-justified">
             <p>
-              <span class="dnerf">McEval</span> annotates problems with release dates, and thus allows evaluating
-              models on problems released during a specific time period. Thus, for a newer model
-              with a training-cutoff date <span class="dnerf">D</span>, we can evaluate it on problems released after
-              <span class="dnerf">D</span> to measure its generalization on <i>unseen</i> problems.
             </p>
-            <!-- side by side images->
-            <div class="columns is-centered">
-              <img src="./images/contamination1.png" alt="Code Generation Live Evaluation" class="teaser-image"
-                width="48%" class="center" />
-              <img src="./images/contamination2.png" alt="Test Output Prediction Live Evaluation" class="teaser-image"
-                width="48%" class="center" />
-            </div>
-
             <p>
-              The above plots depict the performance of models on code generation and test output prediction scenarios
-              on problems released over different months. We find that <span class="dnerf">DeepSeek</span> models
-              exhibit a stark drop in performance on LeetCode problems released since September 2023, its release date,
-              indicating that the earlier problems might be contaminated. In contrast, for
-              <span class="dnerf">GPT</span>
-              models, the performance is relatively stable across different months.
+              The contributions in this paper are summarized as follows:
+              (1) We propose <span class="dnerf">codearena</span> comprised of 397 manually annotated samples, a comprehensive code
+              evaluation benchmark for evaluating the alignment
+              between the model-generated response and human
+              preference, which covers 40 categories, encompassing 7 major categories and 40 subcategories.
+              (2) We introduce <span class="dnerf">synCode-instruct</span>, the large-scale
+              synthetic code instruction corpora from the website.
+              Based on SynCode-Instruct, an effective coder <span class="dnerf">syncoder</span> is used as a strong baseline for CodeArena.
+              (3) We systematically evaluate 39 LLMs on created
+              CodeArena and create a leaderboard to dynamically
+              update the results. Notably, extensive experiments
+              suggest that CodeArena can effectively measure the
+              alignment between the model-generated response
+              and human preference.
             </p>
+            <div class="columns is-centered">
+              <img src="./images/intro.png" alt="Code Generation Live Evaluation" class="teaser-image" width="60%"
+              height="60%" class="center" />
+            </div>
           </div>
         </div>
       </div>
@@ -216,461 +208,366 @@ closed-source LLMs (e.g., o1 and Claude series), underscoring the importance of 
   </section>
 
   <section class="section">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">Holistic Evaluation and Open vs Closed Models</h2>
-          <div class="content has-text-justified">
-            <p>
-              <span class="dnerf">McEval</span> evaluates models on a variety of code-related scenarios, such as
-              code generation, self-repair, test output prediction, and code execution. We find that while model
-              performances
-              are correlated across different scenarios, there relative performances and ordering can vary (left
-              figure).
-              For instance, <span class="dnerf">Claude-3-Opus</span> overtakes <span class="dnerf">GPT-4-turbo</span> in
-              the
-              test output prediction scenario, but not in the code generation scenario. Similarly,
-              <span class="dnerf">Mistral-Large</span>
-              performs considerably better on natural language reasoning tasks like test output prediction and code
-              execution.
-            </p>
-            <br />
-            <div class="columns is-centered">
-              <img src="./images/tasks_radar.png" alt="Holistic Evaluation" class="teaser-image" width="44%"
-                height="44%" class="center" />
-              <img src="./images/lc_barchart.png" alt="Open vesus Closed Models" class="teaser-image" width="48%"
-                class="center" />
-
-              <!-- <img src="./images/lcb_vs_he.png" alt="HumanEval Overfitting" class="teaser-image" width="55%"
-                height="55%" class="center" /> ->
-            </div>
-            <p>
-              We compare the performance of open access models with closed api-access models on <span
-                class="dnerf">McEval</span> and find that generally the closed api-access models outperform the
-              open models. Particularly, the only open models that surpass the barrier are fine-tuned variants of large
-              (30+B parameter) models.
-            </p>
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">Potential Overfitting in HumanEval</h2>
-          <div class="content has-text-justified">
-            <div class="columns is-centered">
-              <img src="./images/lcb_vs_he.png" alt="HumanEval Overfitting" class="teaser-image center" width="80%"
-                height="80%" />
-            </div>
-            <p>
-              We also find that models that perform well on <span class="dnerf">HumanEval</span> might be overfitting on
-              the benchmark. Particularly, the models are separated into two clusters depicted
-              by the green and red shaded region in the right scatterplot. The models in the green region perform
-              similarly on
-              <span class="dnerf">HumanEval</span> and <span class="dnerf">LCB-Easy</span>, while the models in the red
-              region
-              perform well on <span class="dnerf">HumanEval</span> but lag behind on <span
-                class="dnerf">LCB-Easy</span>.
-              For instance, <span class="dnerf">DS-Ins-1.3B</span> model outperforms <span
-                class="dnerf">Gemini-Pro</span> and <span class="dnerf">Claude-Ins-1</span> but performs considerably
-              worse on <span class="dnerf">LCB-Easy</span>.
-              Interestingly, the models in the red region are mostly fine-tuned variants of open access models. On the
-              other hand, base models and most of the closed api-access models lie in the green region. This highlights
-              a potential lack of diverse fine-tuning data being employed by the open source community and the need for
-              optimizing models for a broader set of code-related tasks.
-            </p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">Model Comparisions</h2>
-          <div class="content has-text-justified">
-            <div class="columns is-centered">
-              <img src="./images/codegen_performance.png" alt="Code Generation Performance" class="teaser-image"
-                width="48%" class="center" />
-              <img src="./images/repair_performance.png" alt="Code Execution Performance" class="teaser-image"
-                width="48%" class="center" />
-            </div>
-            <div class="columns is-centered">
-              <img src="./images/testgen_performance.png" alt="Code Execution Performance" class="teaser-image"
-                width="48%" class="center" />
-              <img src="./images/execution_performance.png" alt="Code Execution Performance" class="teaser-image"
-                width="48%" class="center" />
-            </div>
-            <p>
-              The above plots depict the performance of models on different scenarios considered in <span
-                class="dnerf">McEval</span>. We find that <span class="dnerf">GPT-4-turbo</span> and <span
-                class="dnerf">Claude-3-Opus</span> models perform best across different scenarios. Among open source
-              models, <span class="dnerf">DS-Ins-33B</span> and <span class="dnerf">Phind-34B</span> perform the best.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">Submitting Custom Models</h2>
-          <div class="content has-text-justified">
-            <p>
-              To submit models to the leaderboard, you can run the evaluation using the evaluation scripts in
-              <a href="https://github.com/McEval/McEval">GitHub</a>. Once you have the results,
-              you can fill out <a href="https://forms.gle/h2abvAHh6UnhWzzd9">this form</a>. You will need to fill out
-              model details and provide the generated evaluation file with model generations and pass@1 scores. We will
-              review the submission and add the model to the leaderboard accordingly.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">Potential Overfitting in HumanEval</h2>
-          <div class="content has-text-justified">
-            <div class="columns is-centered">
-              <img src="./images/lcb_vs_he.png" alt="HumanEval Overfitting" class="teaser-image center" width="80%"
-                height="80%" />
-            </div>
-            <p>
-              We also find that models that perform well on <span class="dnerf">HumanEval</span> might be overfitting on
-              the benchmark. Particularly, the models are separated into two clusters depicted
-              by the green and red shaded region in the right scatterplot. The models in the green region perform
-              similarly on
-              <span class="dnerf">HumanEval</span> and <span class="dnerf">LCB-Easy</span>, while the models in the red
-              region
-              perform well on <span class="dnerf">HumanEval</span> but lag behind on <span
-                class="dnerf">LCB-Easy</span>.
-              For instance, <span class="dnerf">DS-Ins-1.3B</span> model outperforms <span
-                class="dnerf">Gemini-Pro</span> and <span class="dnerf">Claude-Ins-1</span> but performs considerably
-              worse on <span class="dnerf">LCB-Easy</span>.
-              Interestingly, the models in the red region are mostly fine-tuned variants of open access models. On the
-              other hand, base models and most of the closed api-access models lie in the green region. This highlights
-              a potential lack of diverse fine-tuning data being employed by the open source community and the need for
-              optimizing models for a broader set of code-related tasks.
-            </p>
-          </div>
-        </div>
-      </div>
-  </section>
-  -->
-  <!-- <section class="section">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
           <h2 class="title is-3">CodeArena</h2>
           <div class="content has-text-justified">
-            <div class="columns is-centered">
-              <img src="./images/1_statistics.png" alt="HumanEval Overfitting" class="teaser-image center" width="80%"
-                height="80%" />
-            </div>
             <p>
-              
+              <span class="dnerf">Dataset Statistics.</span> As shown in Figure 2 and Table 1, CodeArena consists of nearly 400 problems.All samples can be classified into 7 main classes and 40 subclasses. 
+              After word segment using Qwen2.5-Coder tokenizer (Hui et al., 2024),
+              the average question length ranges from 5 to 6736
+              tokens with an average of 291 tokens.
+            </p>
+            <br />
+            <div class="columns is-centered">
+              <div class="column is-two-thirds">
+                <img src="./images/categories_sunburst.png" alt="Holistic Evaluation" class="teaser-image" width="75%" height="auto" />
+              </div>
+              <div class="column is-one-third">
+                <img src="./images/table1.png" alt="Code Execution Performance" class="teaser-image" width="100%" height="auto" />
+              </div>
+            </div>
+          </div>
+          <div class="content has-text-justified">
+            <p>
+              <span class="dnerf">Multiple Programming Languages.</span> Figure 3
+              plots the distribution of programming languages,
+              where we strive to cover common programming
+              languages in CodeArena. 
+            </p>
+            <br />
+            <div class="columns is-centered">
+              <img src="./images/statistics.png" alt="Holistic Evaluation" class="teaser-image" width="100%"
+                height="100%" class="center" />
+            </div>
+          </div>
+          <div class="content has-text-justified">
+            <p>
+              <span class="dnerf">Difficulty levels of Codearena.</span> Figure 4 plots
+              the difficulty levels of CodeArena, where all samples are classified into easy, medium, and hard. The
+              middle and hard questions account for the majority
+              of the samples, posing a tough challenge to LLM.
+            </p>
+            <br />
+            <div class="columns is-centered">
+              <img src="./images/difficulty_statistics.png" alt="Holistic Evaluation" class="teaser-image" width="100%"
+                height="100%" class="center" />
+            </div>
+          </div>
+          <div class="content has-text-justified">
+            <p>
+              <span class="dnerf">Evaluation.</span> Inspired by the previous work (Chiang et al., 2024), we apply GPT-4o-2024-08-06
+              as the judger to evaluate the model performance.
+              Specifically, we use two games “compare A and B ”
+              and “compare B and A” (avoid the relative position
+              of A and B affecting the results) to calculate the
+              win rate of A compared to the baseline B.
             </p>
           </div>
+          <div class="content has-text-justified">
+            <p>
+              <span class="dnerf">Decontainmation.</span> To avoid data leakage, we
+              apply data decontamination to decontaminate the
+              prompts from the CodeArena, by removing exact matches (15-gram word overlap) from HumanEval (Chen et al., 2021a), MBPP (Austin
+              et al., 2021), MultiPL-E (Chen et al., 2021a), McEval (Chen et al., 2021a), NaturalCodeBench (Zhang
+              et al., 2024), DS-1000 (Lai et al., 2023), and
+              MultiPL-E (Cobbe et al., 2021).
+            </p>
+            <div class="columns is-centered">
+              <img src="./images/table2.png" alt="Holistic Evaluation" class="teaser-image" width="100%"
+                height="100%" class="center" />
+            </div>
+            <br />
+            <div class="columns is-centered">
+              <img src="./images/overview.png" alt="Holistic Evaluation" class="teaser-image" width="100%"
+                height="100%" class="center" />
+            </div>
+          </div>
+
+          <div class="content has-text-justified">
+            <p>
+              <span class="dnerf">Comparison with other benchmarks.</span> We compare CodeArena with other code benchmarks. 
+              Our benchmark provides a valuable comprehensive
+              benchmark for 40 subtasks and 44 programming
+              languages.
+            </p>
+          </div>
+
         </div>
       </div>
+    </div>
   </section>
+
   <section class="section">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h2 class="title is-3"> Human Annotation & Quality Control</h2>
+          <h2 class="title is-3">SynCode-Instruct</h2>
           <div class="content has-text-justified">
-            <div class="columns is-centered">
-              <img src="./images/2_bench_cases.png" alt="HumanEval Overfitting" class="teaser-image center" width="80%"
-                height="80%" />
-            </div>
             <p>
-              <!-- To create the massively multilingual code evaluation benchmark McEval, the annotation of multilingual
-              code samples is conducted utilizing a comprehensive and systematic human annotation procedure,
-              underpinned by rigorously defined guidelines to ensure accuracy and consistency.
-              Following a detailed training session on the annotation protocol, which emphasizes the importance of context,
-              syntactical correctness, and semantic fidelity across languages, annotators are tasked with creating problem definitions and
-              the corresponding solution. -->
-            <!-- </p>
-          </div>
-        </div>
-      </div>  
-  </section>
-<section class="section">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">mCoder</h2>
-          <div class="content has-text-justified">
-            <div class="columns is-centered">
-              <img src="./images/3_framework.png" alt="HumanEval Overfitting" class="teaser-image center" width="80%"
-                height="80%" />
-            </div>
-            <p>
-              
+              <span class="dnerf">Recall from Common crawl.</span> A trained fasttext is used to distinguish the code-related text and
+              other common raw text, which is used to recall and
+              clean potential code data and filter out low-quality
+              content using weak model-based classifiers and
+              scorers. Our approach encompasses both file-level
+              and repository-level pertaining to ensure comprehensive coverage.
             </p>
           </div>
-        </div>
-      </div>
-</section>
-<section class="section">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">Further Analysis</h2>
-          <div class="content has-text-justified">
-            <div class="columns is-centered">
-              <img src="./images/4_code_class.png" alt="HumanEval Overfitting" class="teaser-image center" width="80%"
-                height="80%" />
-            </div>
-            <p>
-              We categorize the programming languages of McEval into 5 programming paradigms and 11 application scenarios and summarize the performance of code LLMs on the code generation task. 
-            </p>
-          </div>
-        </div>
-      </div>
-</section>
-<section class="section">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">Model Performance in Code Completion Tasks</h2>
-          <div class="content has-text-justified">
-            <div class="columns is-centered">
-              <img src="./images/5_radar_class_result.png" alt="HumanEval Overfitting" class="teaser-image center" width="80%"
-                height="80%" />
-            </div>
-            <p>
-              It can be observed that code LLMs generally perform better in object-oriented and multi-paradigm
-              programming languages (high-resource languages), while perform worse in functional and procedural programming languages (low-resource languages).
-              In areas like web development and scientific computing, the gap between open-source and closed-source models is narrowing. However, for application scenarios, there is still a substantial gap
-              between open-source models and the closed-source GPT-4 series in low-resource languages related to scripting, mobile development, and educational research. mCoder performs superior over multiple same-size models and even some larger open-source models.
-            </p>
-          </div>
-        </div>
-      </div>
-</section>
-<section class="section">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">Unbalance in Different Languages</h2>
-          <div class="content has-text-justified">
-            <div class="columns is-centered">
-              <img src="./images/6_cross_dataset.png" alt="HumanEval Overfitting" class="teaser-image center" width="80%"
-                height="80%" />
-            </div>
-            <p>
-              We compare the results of several open-source models on the Multipl-E multilingual benchmark with corresponding languages on McEval.
-              We obtained scores for 11 programming languages (including Python, Java, JavaScript, C++, PHP, Rust, Swift, R, Lua, Racket, and Julia) from the BigCode
-              leaderboard. As shown in Figure (1), due to the simplicity of Python language tasks in this dataset, many models exhibit significant score discrepancies between the
-              two benchmarks. By examining Figure (2) and (3), it becomes evident that all models demonstrate
-              consistent multilingual capabilities between Multipl-E and McEval. However, Figure (2) highlights
-              a majority of models within the blue circle, indicating that the current state-of-the-art performance
-              of most models primarily lies in high-resource languages like Python, while their proficiency in
-              low-resource languages awaits further exploration and enhancement.
-            </p>
-          </div>
-        </div>
-      </div>
-</section>
-<section class="section">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">Cross-lingual Transfer</h2>
-          <div class="content has-text-justified">
-            <div class="columns is-centered">
-              <img src="./images/7_cross-lingual-transfer.png" alt="HumanEval Overfitting" class="teaser-image center" width="80%"
-                height="80%" />
-            </div>
-            <p>
-              We fine-tune the CodeQwen-1.5 model using Python-only data in McEval-Instruct
-              and compare it with mCoder. CodeQwen-1.5 performs well in most high-resource languages, but CodeQwen without alignment exhibits unsatisfactory results in
-              some low-resource languages due to the inability to follow instructions. As such, with fine-tuning using only Python data,
-              CodeQwen-1.5-Python improves significantly across most languages. It shows that the CodeQwen foundation model already possesses strong coding capabilities
-              but lacks adequate instruction-following skills. Therefore, fine-tuning with Python-only data can still effectively transfer instruction-following abilities to other languages,
-              resulting in superior multilingual performance.
-            </p>
-          </div>
-        </div>
-      </div>
-</section> --> -->
-<!-- <section class="section">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">CodeQwen-1.5-Chat performance on McEval for problems of different difficulty levels.</h2>
-          <div class="content has-text-justified">
-            <div class="columns is-centered">
-              <img src="./images/8_level_statistics.png" alt="HumanEval Overfitting" class="teaser-image center" width="80%"
-                height="80%" />
-            </div>
-            <p>
-              Based on algorithmic complexity, we classify McEval into three levels (Easy/Medium/Hard).
-In Figure 1, we conduct a statistical analysis of CodeQwen-1.5-Chat's performance on code generation tasks
-across various languages. For most languages, the codeLLM can answer the majority of easy questions but struggles with medium and hard ones.
-            </p>
-          </div>
-        </div>
-      </div>
-</section> -->
-<!-- <section class="section">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">Examples of Multilingual Generation</h2>
-          <div class="content has-text-justified">
-            <div class="columns is-centered">
-              <img src="./images/9_bench_completion_cases.png" alt="HumanEval Overfitting" class="teaser-image center" width="80%"
-                height="80%" />
-            </div>
-            <p>
-              The data mainly consists of an instruction part
-              (including function name, function description, and function call cases),a reference solution, and
-              a test cases part. Left Figure: an example of the Lisp language. Middle Figure: a file processing
-              programming task in AWK language. During the evaluation, the corresponding file processing result
-              by the generated code will be compared with the reference answer. Right Figure: an example of the R language.
-            </p>
-          </div>
-        </div>
-      </div>
-</section> -->
-<!-- <section class="section">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">Examples of Multilingual Explanation</h2>
-          <div class="content has-text-justified">
-            <div class="columns is-centered">
-              <img src="./images/10_bench_explain_cases.png" alt="HumanEval Overfitting" class="teaser-image center" width="80%"
-                height="80%" />
-            </div>
-            <p>
-              The data mainly consists of an instruction part (including a complete function),
-              a reference Explanation. Left Figure: an example of the Kotlin language. Middle Figure: an example of
-              the Lua language. Right Figure: an example of the HTML language.
-            </p>
-          </div>
-        </div>
-      </div>
-</section> -->
-<!-- <section class="section">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">Examples of Multilingual Completion</h2>
-          <div class="content has-text-justified">
-            <div class="columns is-centered">
-              <img src="./images/11_bench_fim_cases.png" alt="HumanEval Overfitting" class="teaser-image center" width="80%"
-                height="80%" />
-            </div>
-            <p>
-              The data mainly consists of an instruction part
-              (including an incomplete function ), a reference complete code solution and test cases. Left Figure: an
-              span completion example of the C++ language. Middle Figure: a single-line completion example of
-              the Rust language. Right Figure: a multiple-line completion example of the Shell language.
-            </p>
-          </div>
-        </div>
-      </div>
-</section> -->
-<!-- <section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Optimization Details</h2>
-        <div class="content has-text-justified">
-          <div class="columns is-centered">
-            <img src="./images/12_ts.png" alt="HumanEval Overfitting" class="teaser-image center" width="80%"
-              height="80%" />
-          </div>
-          <p>
-            All mCoder models are fine-tuned using 8 NVIDIA A800-80GB GPUs. The models are trained for
-            2 epochs with a cosine scheduler, starting at a learning rate of 2e-5 and incorporating a 3% warmup
-            phase. Training a model takes about 5 hours. We used AdamW (Loshchilov and Hutter, 2017) as
-            the optimizer and a batch size of 512 with a sequence truncation length of 4096. We use PyTorch’s
-            Fully Sharded Data Parallel (FSDP) to perform distributed training of the model, and use gradient
-            checkpointing technology and gradient accumulation to save memory and achieve training with a
-            larger batch size.
-          </p>
-        </div>
-      </div>
-    </div>
-</section> -->
-<!-- <section class="section">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">Analysis of Language Representations</h2>
-          <div class="content has-text-justified">
-            <div class="columns is-centered">
-              <img src="./images/12_cluster_merge.png" alt="HumanEval Overfitting" class="teaser-image center" width="80%"
-                height="80%" />
-            </div>
-            <p>
-              As shown in the Figure, we analyzed the programming languages in the McEval from their presentation perspective.
-              We used CodeBERT to extract code representations from code snippets in McEval.
-              The figure clearly shows that languages with similar syntax have closely related representations.
-              For example, other functional programming languages similar to CommonLisp, as well as C, C++, Java, and scripting
-              languages, exhibit high grammar similarity.
-            </p>
-          </div>
-        </div>
-      </div>
-</section> -->
 
-<!--
-  <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <h2 class="title">BibTeX</h2>
-      <pre><code></code></pre>
+          <div class="content has-text-justified">
+            <p>
+              <span class="dnerf">Code Classification for Code Snippet.</span> We extract the first layer of CodeBERT (Feng et al., 2020)
+              and fine-tune the tiny classifier on nearly 100 programming languages to build a language identification model. We keep the main language data
+              (e.g. C, Python, and Java) and downsample high resource language data (e.g. HTML and Java) to
+              keep the balance. Besides, we also remove the samples with no code snippets.
+            </p>
+          </div>
+
+          <div class="content has-text-justified">
+            <p>
+              <span class="dnerf">Scaling Code Instruction.</span> Initially, we adopt rule-based filtering to clean pre-extracted content
+              from recalled documents by removing site information, advertisements, and HTML tags, thereby
+              significantly reducing document length for further
+              processing. Different from the previous work (Yue et al., 2024), we utilize Qwen2.5-72B to create
+              new questions instead of extracting question and
+              answer pairs. The synthetic
+              instruction corpora generated by Qwen2.5 is used
+              for the first stage and the high-quality data from
+              GPT-4o is used for the second stage.
+            </p>
+          </div>
+          <br />
+            <div class="columns is-centered">
+              <img src="./images/prompt.png" alt="Holistic Evaluation" class="teaser-image" width="44%"
+                height="44%" class="center" />
+            </div>
+        </div>
+      </div>
     </div>
   </section>
--->
-  <!-- <footer class="footer">
-    <div class="container">
 
-      <div class="columns is-centered">
-        <div class="column is-8">
-          <div class="content">
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Experimental Setup.</h2>
+          <h2 class="title is-4">Instruction Dataset</h2>
+          <div class="content has-text-justified">
             <p>
-              Please reach out to <a href="challenging@buaa.edu.cn">challenging@buaa.edu.cn</a> for questions or
-              feedback on McEval. We are also open to collaborations and suggestions for new scenarios to add to
-              the benchmark. Finally, McEval provides one axis of LLM coding evaluations and we recommend the
-              following leaderboards for measuring code LM ability on various coding tasks, such as
-              <a href="https://livecodebench.github.io/leaderboard.html">LiveCodeBench Leaderboard</a>,
-              <a href="https://evalplus.github.io/leaderboard.html">EvalPlus Leaderboard</a>,
-              <a href="https://crux-eval.github.io/leaderboard.html">CruxEval Leaderboard</a>,
-              <a href="https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard">Chatbot Arena Leaderboard</a>,
-              <a href="https://huggingface.co/spaces/bigcode/bigcode-models-leaderboard">BigCode Models Leaderboard</a>,
-              <a href="https://infi-coder.github.io/inficoder-eval/">InfiCoder-Eval</a>, and
-              <a href="https://leaderboard.tabbyml.com/">TabbyML Leaderboard</a>.
+              <span class="dnerf">CodeLLMs.</span> We evaluate 23 models with sizes
+              ranging from 7B to 72B parameters, including
+              general/code LLMs, open/closed-source models,
+              and base/instruction models.
             </p>
+          </div>
+
+          <h2 class="title is-4">Evaluation Benchmark</h2>
+          <div class="content has-text-justified">
             <p>
-              The source code from this website is borrowed from <a
-                href="https://github.com/LiveCodeBench/livecodebench.github.io">LiveCodeBench</a>!
+              <span class="dnerf">Evalplus and Multipl-E.</span> The EvalPlus (Liu et al., 2023) is a upgraded version of the HumanEval (Chen et al., 2021a) and MBPP (Austin et al., 2021) to test the code generation capabilities.
+              The benchmark reports the scores of HumanEval
+              (HE)/MBPP with base test cases and HumanEval+
+              (HE+)/MBPP+ with plus test cases.
+            </p>
+          </div>
+          <div class="content has-text-justified">
+            <p>
+              <span class="dnerf">Multipl-E.</span> The MultiPL-E test set (Cassano et al., 2023) contains the HumanEval (Python) and
+              translated test set of other programming languages, i.e., Java, C++, Javascript, and Typescript.              
+            </p>
+          </div>
+          <div class="content has-text-justified">
+            <p>
+              <span class="dnerf">CodeArena.</span> CodeArena Different from the EvalPlus and MultiPL-E, CodeArena consists of many nonalgorihtmic, which is not suitable for code execution-based evaluation. Each question is
+              scored twice to calculate the win rate and tie rate by GPT-4o using a different input order “A,B” and “B, A”, where “A” is the baseline from gpt-4-turbo-2024-04-09 and “B” is the model-generated response.          
+            </p>
+          </div>
+          
+          <h2 class="title is-4">Evaluation Metrics</h2>
+          <div class="content has-text-justified">
+            <p>
+              <span class="dnerf">Pass@k.</span> Given the model-generated response,
+              we extract the expected function and feed the
+              test cases into the extracted function to verify the
+              correctness of the generation. We adopt greedy
+              Pass@1 (Chen et al., 2021a) to report the results
+              on EvalPlus and MultiPL-E.
+            </p>
+          </div>
+          <div class="content has-text-justified">
+            <p>
+              <span class="dnerf">LLM as a judgement.</span> Due to the high cost of
+              collecting human preferences (Zheng et al., 2023a),
+              we use pairwise comparison for judgment, where
+              an LLM judger is fed with a question and two
+              answers and determines which one is better or
+              declares a tie1. We report win rate/tie rate for
+              CodeArena.
+            </p>
+          </div>
+
+          <h2 class="title is-4">Impletmentation Details.</h2>
+          <div class="content has-text-justified">
+            <p>
+              We fine-tune Qwen2.5-Coder-32B on nearly 20B
+              synthetic tokens generated from website data,
+              where GPT-4o generates 1B tokens and Qwen2.5-Coder-Instruct generates the left tokens. SynCoder is fine-tuned on the synthetic instruction
+              corpus SynCode-Instruct with 256 NVIDIA A100-80GB GPUs. The learning rate first increases into
+              8 × 10−5 with 100 warmup steps and then adopts
+              a cosine decay scheduler. We adopt the Adam optimizer (Kingma and Ba, 2015) with a global batch
+              size of 2048 samples and a tensor parallel size of
+              8, truncating sentences to 32K tokens.
             </p>
           </div>
         </div>
       </div>
     </div>
-  </footer> -->
+  </section>
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Results and Discussion.</h2>
+          <h2 class="title is-4">Main Results</h2>
+          <div class="content has-text-justified">
+            <p>
+              <span class="dnerf">Codearena.</span> Table 3, the leaderboard, shows that the win rate/tie
+              rate of different instruction LLM on CodeArena.
+            </p>
+          </div>
+          <div class="content has-text-justified">
+            <p>
+              <span class="dnerf">EvalPlus and Multipl-E.</span> Table 4 shows that
+              SynCoder significantly beats previous strong opensource baselines using large-scale synthetic instruction, closing the gap with GPT-4o and Claude,
+              which verifies that the large-scale synthetic data can
+              bring significant improvement for the base model.
+            </p>
+            <br />
+            <div class="columns is-centered">
+              <img src="./images/table4.png" alt="Holistic Evaluation" class="teaser-image" width="100%"
+                height="100%" class="center" />
+            </div>
+          </div>
+
+          <h2 class="title is-4">Discussion</h2>
+          <div class="content has-text-justified">
+            <p>
+              <span class="dnerf">Examples of CodeArena.</span> Figure 7 lists six
+              examples from the different subtasks, covering
+              Python, HTML, CSS, and Java. Different from the
+              previous benchmarks (Cassano et al., 2023; Jain
+              et al., 2024) comprised of algorithmic questions in
+              a fixed format, the queries of CodeArena are more
+              consistent with the distribution of user questions
+              in real Q&A scenarios.
+            </p>
+            <br />
+            <div class="columns is-centered">
+              <img src="./images/bench_cases.png" alt="Holistic Evaluation" class="teaser-image" width="100%"
+                height="100%" class="center" />
+            </div>
+          </div>
+          <div class="content has-text-justified">
+            <p>
+              <span class="dnerf">Difference between CodeArena and Execution Based benchmark.</span> Compared to the benchmark MultiPL-E evaluated by code execution,
+              CodeArena is created from real-world Q&A and
+              evaluated by LLM-as-a-judge to evaluate the alignment between the model-generated response and
+              human preference.
+            </p>
+            <br />
+            <div class="columns is-centered">
+              <img src="./images/difference.png" alt="Holistic Evaluation" class="teaser-image" width="44%"
+                height="44%" class="center" />
+            </div>
+          </div>
+          <div class="content has-text-justified">
+            <p>
+              <span class="dnerf">Scaling Synthetic Instruction Corpora.</span> We
+              would like to further analyze the performance of
+              SynCoder in MultiPl-E and CodeArena given different sizes of instruction corpora. Therefore, we
+              select the full instruction (19B synthetic data is at
+              the front of the data and 1B high-quality data is
+              at the end) set SynCode-Instruct and extract the
+              first K billion tokens as the fine-tuned data. We set
+              K = {2, 4, . . . , 20}. We randomly extract specific
+              data from the whole sentence pairs. Figure 9 shows
+              the performance on CodeArena. With the increase
+              of instruction data, SynCoder still can get significant improvement, which emphasizes the importance of the scaling instruction corpora. Besides,
+              the two-stage SFT gets a better performance compared to the one-stage training (red line), where
+              the high-quality data brings a huge improvement at last.   
+            </p>
+            <br />
+            <div class="columns is-centered">
+              <img src="./images/scaling_code_arena.png" alt="Holistic Evaluation" class="teaser-image" width="44%"
+                height="44%" class="center" />
+            </div>
+          </div>
+
+          <div class="content has-text-justified">
+            <p>
+              <span class="dnerf">Distribution of different benchmarks.</span> We visualize the queries of CodeArena and MultiPL-E
+              (Python, Java, and CPP) by extracting the encoder
+              representations of the last layer for t-SNE (Van der
+              Maaten and Hinton, 2008). It shows that the distribution of
+              queries in CodeArena is very diverse, which is suitable for evaluating human preferences in realistic
+              scenarios
+            </p>
+            <br />
+            <div class="columns is-centered">
+              <img src="./images/xlmr_distribution.png" alt="Holistic Evaluation" class="teaser-image" width="44%"
+                height="44%" class="center" />
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Conclusion</h2>
+          <div class="content has-text-justified">
+            <p>
+              In this work, We introduce CodeArena, a meticulously humancurated benchmark composed of
+              397 high-quality samples spanning 40 categories,
+              derived from real-world user queries, to address
+              discrepancies between model-generated responses
+              and human preferences in coding tasks. Additionally, we create SynCode-Instruct, a diverse synthetic instruction corpus containing nearly 20 billion tokens, by scaling web-sourced instructions.
+              Our evaluation of over 20 large language models
+              (LLMs) using CodeArena highlights significant performance discrepancies between code-execution-based benchmarks and our humancurated benchmark. Notably, there is a marked performance
+              gap between open-source code LLMs (such as
+              DeepSeek-Coder) and closed-source LLMs (such
+              as the o1 and Claude series), underscoring the importance of aligning AI models with human preferences in coding tasks.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+          <div class="rounded-box is-centered">
+            Citation<br>
+            @inproceedings{<br>
+              title={Evaluating and Aligning CodeLLMs on Human Preference},<br>
+              author={Jian Yang, Jiaxi Yang, Ke Jin, Yibo Miao, Lei Zhang, Liqun Yang, Zeyu Cui, Yichang Zhang, Binyuan Hui, Junyang Lin},<br>
+              booktitle={},<br>
+              year={2025},<br>
+              url={}
+            }
+          </div>
+      </div>
+    </div>
+  </section>
+
 </body>
 
 </html>
