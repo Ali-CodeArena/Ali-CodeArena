@@ -52,6 +52,10 @@
     body {
       background-color: #fdf8f0; /* 羊皮纸背景色 */
     }
+
+    .spacer {
+      margin-left: 4px; /* 或者你想要的任何间距值 */
+    }
   </style>
 
 </head>
@@ -107,8 +111,9 @@
                     <span>Paper</span>
                   </a>
                 </span>
+                <span class="spacer"></span> <!-- 增加间距 -->
                 <span class="link-block">
-                  <a href=""
+                  <a href="https://github.com/QwenLM/Qwen2.5-Coder/tree/main/qwencoder-eval/instruct/CodeArena"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
@@ -116,9 +121,9 @@
                     <span>Code</span>
                   </a>
                 </span>
-                <!-- Dataset Link. -->
+                <span class="spacer"></span> <!-- 增加间距 -->
                 <span class="link-block">
-                  <a href=""
+                  <a href="https://huggingface.co/datasets/CSJianYang/CodeArena"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="far fa-images"></i>
@@ -126,6 +131,7 @@
                     <span>Evaluation Data</span>
                   </a>
                 </span>
+                <span class="spacer"></span> <!-- 增加间距 -->
                 <!-- Leaderboard Link. -->
                 <span class="link-block">
                   <a href="leaderboard.html" class="external-link button is-normal is-rounded is-dark">
@@ -434,7 +440,7 @@
           <h2 class="title is-4">Main Results</h2>
           <div class="content has-text-justified">
             <p>
-              <span class="dnerf">Codearena.</span> Table 3, the leaderboard, shows that the win rate/tie
+              <span class="dnerf">Codearena.</span> Table 3, <a href="https://ali-codearena.github.io/Ali-CodeArena/leaderboard.html" target="_blank">the leaderboard</a>, shows that the win rate/tie
               rate of different instruction LLM on CodeArena.
             </p>
           </div>

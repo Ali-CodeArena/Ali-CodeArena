@@ -207,6 +207,12 @@ function getColumnDefs(columnNames: Array<string>, performances: Array<any>, mod
         pinned: "left"
       },
       {
+        headerName: 'Avg',
+        field: 'Avg',
+        columnGroupShow: 'closed',   // 列组分组
+        minWidth: 75
+      },
+      {
         headerName: 'Rank',
         field: 'Rank',
         columnGroupShow: 'closed',   // 列组分组
@@ -306,12 +312,6 @@ function getColumnDefs(columnNames: Array<string>, performances: Array<any>, mod
           return null;
         },
         
-      },
-      {
-        headerName: 'Avg',
-        field: 'Avg',
-        columnGroupShow: 'open',   // 列组分组
-        minWidth: 75
       }
     ]
     return columnDefs;
@@ -343,6 +343,12 @@ function getColumnDefs(columnNames: Array<string>, performances: Array<any>, mod
     {
       headerName: 'Score',
       children: [
+        {
+          headerName: 'Avg',
+          field: 'Avg',
+          columnGroupShow: 'closed',   // 列组分组
+          minWidth: 75
+        },
         {
           headerName: 'Rank',
           field: 'Rank',
@@ -444,13 +450,6 @@ function getColumnDefs(columnNames: Array<string>, performances: Array<any>, mod
             }
             return null;
           },
-          
-        },
-        {
-          headerName: 'Avg',
-          field: 'Avg',
-          columnGroupShow: 'open',   // 列组分组
-          minWidth: 75
         }
       ]
     }

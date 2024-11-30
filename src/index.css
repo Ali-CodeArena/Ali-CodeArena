@@ -2,7 +2,9 @@
     font-family: 'Cinzel', serif;
     font-weight: 700;
   }
-
+.spacer {
+    margin-left: 10px; /* 或者你想要的任何间距值 */
+  }
 @import url('https://fonts.googleapis.com/css2?family=IM+Fell+Great+Primer:ital@0;1&display=swap');
 .publication-title {
   font-family: 'IM Fell Great Primer', serif;

@@ -70,8 +70,8 @@ ReactDOM.render(
     <section className="hero">
       <div className="hero-body">
         <div className="container is-fluid">
-          <div className="columns  is-fullwidth">
-            <div style={{ backgroundColor: 'lightorange', width: '100%' }}>
+          <div className="columns  is-fullwidth is-fullheight">
+            <div style={{ backgroundColor: 'lightorange', width: '100%', height: '100%' }}>
             <div className="column has-text-centered is-fullwidth">
               {/* <h1 className="title is-1 publication-title">
                 ⚔️CodeArena: Real-world Coding Tasks<br />Aligning Human Preferences and Model Generation
@@ -108,7 +108,6 @@ ReactDOM.render(
               <span className="is-4 publication-title-Cinzel"><sup>3</sup>University of Chinese Academy of Sciences;</span><br />
               <span className="is-4 publication-title-Cinzel"><sup>4</sup>Shanghai Jiao Tong University;</span>
             </div>
-
               <div className="column has-text-centered">
                 <div className="publication-links">
                   <span className="link-block">
@@ -120,9 +119,9 @@ ReactDOM.render(
                       <span className='publication-title-Cinzel'>Paper</span>
                     </a>
                   </span>
-
+                  <span className="spacer"></span>
                   <span className="link-block">
-                    <a href=""
+                    <a href="https://github.com/QwenLM/Qwen2.5-Coder/tree/main/qwencoder-eval/instruct/CodeArena"
                       className="external-link button is-large is-rounded is-dark">
                       <span className="icon">
                         <i className="fab fa-github"></i>
@@ -130,9 +129,9 @@ ReactDOM.render(
                       <span className='publication-title-Cinzel'>Code</span>
                     </a>
                   </span>
-
+                  <span className="spacer"></span>
                   <span className="link-block">
-                    <a href=""
+                    <a href="https://huggingface.co/datasets/CSJianYang/CodeArena"
                       className="external-link button is-large is-rounded is-dark">
                       <span className="icon">
                         <i className="far fa-images"></i>
@@ -140,7 +139,7 @@ ReactDOM.render(
                       <span  className='publication-title-Cinzel'>Evaluation Data</span>
                     </a>
                   </span>
-
+                  <span className="spacer"></span>
                   <span className="link-block">
                     <a
                       href="https://ali-codearena.github.io/Ali-CodeArena/"
@@ -152,11 +151,10 @@ ReactDOM.render(
                       <span  className='publication-title-Cinzel'>Home</span>
                     </a>
                   </span>
-
                 </div>
               </div>
               </div>
-              <div className="column has-text-centered">
+              <div className="column has-text-centered is-fullheight" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                 <LeaderboardTabs />
               </div>
             </div>
