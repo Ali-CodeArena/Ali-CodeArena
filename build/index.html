@@ -195,7 +195,7 @@
               preference, which covers 40 categories, encompassing 7 major categories and 40 subcategories.
               (2) We introduce <span class="dnerf">synCode-instruct</span>, the large-scale
               synthetic code instruction corpora from the website.
-              Based on SynCode-Instruct, an effective coder <span class="dnerf">syncoder</span> is used as a strong baseline for CodeArena.
+              Based on SynCode-Instruct, an effective coder <span class="dnerf">Qwen-SynCoder</span> is used as a strong baseline for CodeArena.
               (3) We systematically evaluate 39 LLMs on created
               CodeArena and create a leaderboard to dynamically
               update the results. Notably, extensive experiments
@@ -418,7 +418,7 @@
             <p>
               We fine-tune Qwen2.5-Coder-32B on nearly 20B
               synthetic tokens generated from website data,
-              where GPT-4o generates 1B tokens and Qwen2.5-Coder-Instruct generates the left tokens. SynCoder is fine-tuned on the synthetic instruction
+              where GPT-4o generates 1B tokens and Qwen2.5-Coder-Instruct generates the left tokens. Qwen-SynCoder is fine-tuned on the synthetic instruction
               corpus SynCode-Instruct with 256 NVIDIA A100-80GB GPUs. The learning rate first increases into
               8 × 10−5 with 100 warmup steps and then adopts
               a cosine decay scheduler. We adopt the Adam optimizer (Kingma and Ba, 2015) with a global batch
@@ -447,7 +447,7 @@
           <div class="content has-text-justified">
             <p>
               <span class="dnerf">EvalPlus and Multipl-E.</span> Table 4 shows that
-              SynCoder significantly beats previous strong opensource baselines using large-scale synthetic instruction, closing the gap with GPT-4o and Claude,
+              Qwen-SynCoder significantly beats previous strong opensource baselines using large-scale synthetic instruction, closing the gap with GPT-4o and Claude,
               which verifies that the large-scale synthetic data can
               bring significant improvement for the base model.
             </p>
@@ -493,7 +493,7 @@
             <p>
               <span class="dnerf">Scaling Synthetic Instruction Corpora.</span> We
               would like to further analyze the performance of
-              SynCoder in MultiPl-E and CodeArena given different sizes of instruction corpora. Therefore, we
+              Qwen-SynCoder in MultiPl-E and CodeArena given different sizes of instruction corpora. Therefore, we
               select the full instruction (19B synthetic data is at
               the front of the data and 1B high-quality data is
               at the end) set SynCode-Instruct and extract the
@@ -501,7 +501,7 @@
               K = {2, 4, . . . , 20}. We randomly extract specific
               data from the whole sentence pairs. Figure 9 shows
               the performance on CodeArena. With the increase
-              of instruction data, SynCoder still can get significant improvement, which emphasizes the importance of the scaling instruction corpora. Besides,
+              of instruction data, Qwen-SynCoder still can get significant improvement, which emphasizes the importance of the scaling instruction corpora. Besides,
               the two-stage SFT gets a better performance compared to the one-stage training (red line), where
               the high-quality data brings a huge improvement at last.   
             </p>
