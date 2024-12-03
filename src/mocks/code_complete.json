@@ -533,7 +533,21 @@
             "group2": "20B+"
         },
         {
-            "model": "SynCoder",
+            "model": "QwQ-32B-Preview",
+            "Size": "32B",
+            "User Interface&Experience": "53.3/15.6",
+            "Development&Programming": "56.8/16.7",
+            "Specialized Computing": "50.6/16.9",
+            "Tools, Environments, and Practices": "64.4/5.1",
+            "Emerging Technologies&Applications": "52.6/21.1",
+            "Miscellaneous and General Inquiry": "85.7/0.0",
+            "Databases&Data Handling": "63.6/9.1",
+            "Avg": "56.6/14.5",
+            "group1": "Open-source LLMs",
+            "group2": "20B+"
+        },
+        {
+            "model": "Qwen-SynCoder",
             "Size": "32B",
             "User Interface&Experience": "55.6/26.7",
             "Development&Programming": "49.2/20.8",
@@ -663,7 +677,10 @@
             "model_name": "Qwen2.5-72B-Instruct"
         },
         {
-            "model_name": "SynCoder"
+            "model_name": "QwQ-32B-Preview"
+        },
+        {
+            "model_name": "Qwen-SynCoder"
         }
     ],
     "date_marks": [
@@ -703,6 +720,7 @@
         1682892000000 ,
         1685570400000 ,
         1690840800000 ,
+        1688162400000 ,
         1688162400000 ,
         1688162400000
     ]
