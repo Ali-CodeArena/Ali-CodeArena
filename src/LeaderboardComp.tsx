@@ -222,7 +222,7 @@ const Leaderboard = React.memo(function LeaderboardComponent(props: any) {
   console.log("columnDefs :", columnDefs)
 //display: numProblems === 0 ? "none" : "flex",
   const getRowStyle = (params: ICellRendererParams) => {
-    if (params.data && params.data.Model === 'SynCoder') {
+    if (params.data && params.data.Model.includes('SynCoder')) {
       return { background: '#C7EDCC' };
     }
   };
