@@ -76,7 +76,7 @@ ReactDOM.render(
               {/* <h1 className="title is-1 publication-title">
                 ⚔️CodeArena: Real-world Coding Tasks<br />Aligning Human Preferences and Model Generation
               </h1> */}
-              <h1 className="title publication-title" style={{ fontSize: '2.5rem' }}>⚔️CodeArena</h1>
+              <h1 className="title publication-title" style={{ fontSize: '2.5rem' }}>⚔️CodeArenaEval</h1>
               <h2 className="title is-3 publication-title">Real-world Coding Tasks</h2>
               <h2 className="title is-3 publication-title">Aligning Human Preferences and Model Generation</h2>
             <div className="is-4 publication-authors">

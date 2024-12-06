@@ -113,6 +113,20 @@
             "group2": "200B+"
         },
         {
+            "model": "Qwen-Max",
+            "Size": "🔒",
+            "User Interface&Experience": "75.6/17.8",
+            "Development&Programming": "74.2/13.6",
+            "Specialized Computing": "59.6/24.7",
+            "Tools, Environments, and Practices": "78.0/6.8",
+            "Emerging Technologies&Applications": "68.4/23.7",
+            "Miscellaneous and General Inquiry": "100.0/0.0",
+            "Databases&Data Handling": "81.8/4.5",
+            "Avg": "71.9/15.8",
+            "group1": "Proprietary LLMs",
+            "group2": "200B+"
+        },
+        {
             "model": "Qwen2.5-0.5B-Instruct",
             "Size": "0.5B",
             "User Interface&Experience": "2.2/4.4",
@@ -587,6 +601,9 @@
             "model_name": "Yi-lightning"
         },
         {
+            "model_name": "Qwen-Max"
+        },
+        {
             "model_name": "Qwen2.5-0.5B-Instruct"
         },
         {
@@ -693,6 +710,7 @@
         1698793200000 ,
         1701385200000 ,
         1704063600000 ,
+        1706742000000 ,
         1706742000000 ,
         1709247600000 ,
         1711922400000 ,
